@@ -5,6 +5,8 @@ import { PiPlusBold, PiMinusBold } from 'react-icons/pi'
 
 import { Coffee } from '@/data/coffee'
 
+import { currencyFormat } from '@/utils/currencyFormat'
+
 interface CoffeeCardProps {
   coffee: Coffee
 }
@@ -21,9 +23,14 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       />
 
       <div className="flex flex-wrap items-center justify-center gap-1">
-        <span className="mb-4 rounded-full bg-yellow-300 px-2 py-1 text-[10px] font-bold uppercase text-yellow-900">
-          Tradicional
-        </span>
+        {coffee.tags.map((tag) => (
+          <span
+            key={`${coffee.id}${tag}`}
+            className="mb-4 rounded-full bg-yellow-300 px-2 py-1 text-[10px] font-bold uppercase text-yellow-900"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
 
       <div className="mb-8 space-y-2 text-center">
@@ -37,7 +44,8 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
 
       <div className="flex w-full items-center justify-between">
         <span className="font-title text-2xl font-extralight leading-[130%]">
-          <span className="font-sans text-sm">R$</span> {coffee.price}
+          <span className="font-sans text-sm">R$</span>{' '}
+          {currencyFormat(coffee.price)}
         </span>
 
         <div className="flex items-center gap-2">

@@ -51,8 +51,7 @@ export const coffeeData: Coffee[] = [
   {
     id: 6,
     name: 'Latte',
-    description:
-      'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+    description: 'Uma dose de café expresso com o dobro de leite e espuma',
     tags: ['Tradicional', 'Com leite'],
     price: 9.9,
     imageUrl: '/latte.png',
