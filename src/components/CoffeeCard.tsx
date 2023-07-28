@@ -1,13 +1,24 @@
 import Image from 'next/image'
-import coffeeImg from '../assets/Coffee.png'
 
 import { IoCart } from 'react-icons/io5'
 import { PiPlusBold, PiMinusBold } from 'react-icons/pi'
 
-export function CoffeeCard() {
+import { Coffee } from '@/data/coffee'
+
+interface CoffeeCardProps {
+  coffee: Coffee
+}
+
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
   return (
     <div className="flex w-full max-w-[256px] flex-col items-center rounded-bl-[36px] rounded-br-md rounded-tl-md rounded-tr-[36px] bg-base-200 px-6 py-5">
-      <Image className="-mt-11 mb-3" src={coffeeImg} alt="cafe" />
+      <Image
+        className="-mt-11 mb-3"
+        src={coffee.imageUrl}
+        alt="cafe"
+        width={120}
+        height={120}
+      />
 
       <div className="flex flex-wrap items-center justify-center gap-1">
         <span className="mb-4 rounded-full bg-yellow-300 px-2 py-1 text-[10px] font-bold uppercase text-yellow-900">
@@ -17,16 +28,16 @@ export function CoffeeCard() {
 
       <div className="mb-8 space-y-2 text-center">
         <strong className="font-title text-xl font-bold leading-[130%] text-base-800">
-          Expresso Tradicional
+          {coffee.name}
         </strong>
         <p className="text-sm leading-[130%] text-base-600">
-          O tradicional café feito com água quente e grãos moídos
+          {coffee.description}
         </p>
       </div>
 
       <div className="flex w-full items-center justify-between">
         <span className="font-title text-2xl font-extralight leading-[130%]">
-          <span className="font-sans text-sm">R$</span> 9,90
+          <span className="font-sans text-sm">R$</span> {coffee.price}
         </span>
 
         <div className="flex items-center gap-2">

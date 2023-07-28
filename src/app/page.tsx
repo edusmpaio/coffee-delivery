@@ -1,6 +1,8 @@
 import { Hero } from '../components/Hero'
 import { CoffeeCard } from '../components/CoffeeCard'
 
+import { coffeeData } from '@/data/coffee'
+
 export default function Home() {
   return (
     <>
@@ -12,7 +14,9 @@ export default function Home() {
         </h2>
 
         <div className="mt-[54px] flex flex-wrap gap-x-8 gap-y-10">
-          <CoffeeCard />
+          {coffeeData.map((coffee) => (
+            <CoffeeCard key={coffee.id} coffee={coffee} />
+          ))}
         </div>
       </section>
     </>
