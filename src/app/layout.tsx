@@ -6,6 +6,7 @@ import Image from 'next/image'
 import logo from '../assets/logo.svg'
 
 import { IoCart, IoLocationSharp } from 'react-icons/io5'
+import Link from 'next/link'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -30,25 +31,25 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baloo.variable} bg-base-100 font-sans text-base-700`}
       >
-        <div className="mx-auto w-full max-w-[1120px]">
-          <header className="flex items-center justify-between py-8">
-            <Image src={logo} alt="Coffee Delivery" width={84.95} height={40} />
+        <header className="mx-auto flex w-full max-w-[1120px] items-center justify-between py-8">
+          <Link href="/">
+            <Image src={logo} alt="Coffee Delivery" />
+          </Link>
 
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1 rounded-md bg-purple-300 p-2">
-                <IoLocationSharp className="text-[22px] text-purple-500" />
-                <span className="text-sm leading-[130%] text-purple-800">
-                  Porto Alegre, RS
-                </span>
-              </div>
-              <div className="rounded-md bg-yellow-300 p-2">
-                <IoCart className="text-[22px] text-yellow-900" />
-              </div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 rounded-md bg-purple-300 p-2">
+              <IoLocationSharp className="text-[22px] text-purple-500" />
+              <span className="text-sm leading-[130%] text-purple-800">
+                Porto Alegre, RS
+              </span>
             </div>
-          </header>
+            <div className="rounded-md bg-yellow-300 p-2">
+              <IoCart className="text-[22px] text-yellow-900" />
+            </div>
+          </div>
+        </header>
 
-          <div>{children}</div>
-        </div>
+        <div>{children}</div>
       </body>
     </html>
   )
