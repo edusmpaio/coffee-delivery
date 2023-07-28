@@ -2,11 +2,11 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto_Flex as Roboto, Baloo_2 as Baloo } from 'next/font/google'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/logo.svg'
 
 import { IoCart, IoLocationSharp } from 'react-icons/io5'
-import Link from 'next/link'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 
@@ -43,9 +43,9 @@ export default function RootLayout({
                 Porto Alegre, RS
               </span>
             </div>
-            <div className="rounded-md bg-yellow-300 p-2">
+            <Link href="/cart" className="rounded-md bg-yellow-300 p-2">
               <IoCart className="text-[22px] text-yellow-900" />
-            </div>
+            </Link>
           </div>
         </header>
 
