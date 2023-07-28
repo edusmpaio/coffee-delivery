@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import heroImage from '../../assets/hero-img.png'
-import bgBlur from '../../assets/bg-blur.svg'
+import heroImage from '../assets/hero-img.png'
+import bgBlur from '../assets/bg-blur.svg'
 
 import { IoCart } from 'react-icons/io5'
 import { PiCoffeeFill, PiTimerFill, PiPackageFill } from 'react-icons/pi'
